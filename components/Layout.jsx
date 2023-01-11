@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Navigation from './Navigation'
 import Footer from './Footer'
-import '../node_modules/papercss/dist/paper.css'
 
 //import styles from '../styles/Home.module.css'
 

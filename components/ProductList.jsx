@@ -1,5 +1,6 @@
 import jsondb from '../jsondb/products'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function ProductList() {
     return (
@@ -10,13 +11,16 @@ export default function ProductList() {
                 {
                     jsondb.products.map((product) => (
                         <div key={product.name} className='padding-small child-borders'>
-                            <div class="card " style={{ width: "16rem" }}>
-                                <div class="card-body ">
-                                    <h4 class="card-title">{product.name}</h4>
-                                    <h5 class="card-subtitle">{product.description}</h5>
-                                    <button>Let me go here!</button>
+                            <div className="card " style={{ width: "16rem" }}>
+                                <div className="card-body ">
+                                    <h4 className="card-title">{product.name}</h4>
+                                    <h5 className="card-subtitle">{product.description}</h5>
+                                    <button>Add to Cart</button>
                                 </div>
-                                <Image width={450} height={10} class="image-bottom" src={product.image} alt="Card example image" />
+                                <Link href={`/product/${product.url}`} style={{ background: "none", color: "#41403e" }} >
+                                    <Image width={450} height={10} className="image-bottom" src={product.image} alt="Card example image" />
+                                </Link>
+
                             </div>
                         </div>
                     ))

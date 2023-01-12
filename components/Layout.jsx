@@ -14,6 +14,9 @@ export default function Layout({ children }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navigation />
+            {/* <div class="to-top">
+                <a href="#top" class="paper-btn margin">^</a>
+            </div> */}
             <div className='container container-lg'>
                 {children}
             </div>

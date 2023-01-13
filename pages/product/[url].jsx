@@ -16,9 +16,9 @@ export default function Productpage() {
     )
   }
   return (
-    <div className='margin-top-large'>
+    <div className='margin-top-large' style={{ height: "100vh" }}>
       <div className='margin padding'>
-        <Link href='/' className='text-dark' style={{ background: "none", color: "#41403e" }}>to Home</Link>
+        <Link href='/' className='text-dark' style={{ background: "none"}}>--Home--</Link>
       </div>
       <div className='row flex-spaces'>
         <div className='sm-4 col'>
@@ -30,8 +30,8 @@ export default function Productpage() {
           <p>{product.description}</p>
           <div className="col col-3 padding-none">
             <div className="form-group">
-              <label htmlFor="paperInputs2">Quantity</label>
-              <input className="input-block" type="number" placeholder='1' id="paperInputs2" />
+              <label htmlFor="quantity">Quantity</label>
+              <input className="input-block" type="number" placeholder='1' min='1' id="quantity" />
             </div>
           </div>
           <div className="row">

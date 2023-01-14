@@ -13,7 +13,7 @@ export default function Orders() {
                     <table>
                         <thead>
                             <tr>
-                                <th>Order Nr.</th>
+                                <th>Order Nr.</th> 
                                 <th>Client</th>
                                 <th>Adresse</th>
                                 <th>Status</th>

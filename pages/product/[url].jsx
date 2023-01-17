@@ -1,13 +1,13 @@
-import { useRouter } from "next/router"
-import jsondb from "../../jsondb/products";
 import Link from "next/link";
 import Image from "next/image";
+import mongodb from "../../utils/mongodb";
+import Product from "../../models/Product";
+import { useState } from "react";
 
-export default function Productpage() {
-  const router = useRouter();
-  const { url } = router.query;
-  const product = jsondb.products.find((p) => p.url === url);
+export default function Productpage({ product }) {
 
+  const [quantity, setQuantity] = useState(1);
+  console.log(quantity)
   if (!product) {
     return (
       <div>
@@ -18,11 +18,11 @@ export default function Productpage() {
   return (
     <div className='margin-top-large' style={{ height: "100vh" }}>
       <div className='margin padding'>
-        <Link href='/' className='text-dark' style={{ background: "none"}}>--Home--</Link>
+        <Link href='/' className='text-dark' style={{ background: "none" }}>--Home--</Link>
       </div>
       <div className='row flex-spaces'>
         <div className='sm-4 col'>
-          <Image src={product.image} alt={product.name} width={300} height={300}></Image>
+          <Image src={product.image} alt={product.name} width={400} height={300}></Image>
         </div>
         <div className='sm-4 col'>
           <h3>{product.name}</h3>
@@ -31,7 +31,16 @@ export default function Productpage() {
           <div className="col col-3 padding-none">
             <div className="form-group">
               <label htmlFor="quantity">Quantity</label>
-              <input className="input-block" type="number" placeholder='1' min='1' id="quantity" />
+              <input
+                className="input-block"
+                type="number"
+                placeholder='1'
+                defaultValue={quantity}
+                min=''
+                max={100}
+                id="quantity"
+                onChange={(e) => setQuantity(e.target.value)}
+              />
             </div>
           </div>
           <div className="row">
@@ -43,4 +52,16 @@ export default function Productpage() {
       </div>
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+  const url = context.params.url;
+  await mongodb.dbConnect();
+  const product = await Product.findOne({ url }).lean();
+
+  return ({
+    props: {
+      product: JSON.parse(JSON.stringify(product))
+    }
+  });
 }

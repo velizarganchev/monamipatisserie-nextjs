@@ -23,7 +23,7 @@ export default function Navigation() {
                         <li>
                             <Link href="/cart">
                                 <Image src={'/images/warenkorb.png'} alt='cart' width={30} height={30} />
-                                {/* <span className="badge success" width={5} height={5} >2</span> */}
+                                <span className="badge success" width={5} height={5} >2</span>
                             </Link>
                         </li>
                     </ul>

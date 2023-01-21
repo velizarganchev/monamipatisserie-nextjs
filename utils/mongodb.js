@@ -1,3 +1,4 @@
+import { Console } from "console";
 import mongoose from "mongoose";
 
 let cashed = global.mongoose;
@@ -29,7 +30,7 @@ async function dbConnect() {
 
 async function dbDisconnect() {
     await mongoose.disconnect();
-    console.log('DB connection completed');
+    //console.log('DB connection completed');
 };
 
 const mongodb = { dbConnect, dbDisconnect };

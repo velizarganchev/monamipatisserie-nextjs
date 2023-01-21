@@ -12,6 +12,6 @@ export default async function handler(req, res) {
 
   await mongodb.dbDisconnect();
 
-  // res.send({ text: 'Data saved' })
+  //res.send({ text: 'Data saved' })
   res.send(products);
 }

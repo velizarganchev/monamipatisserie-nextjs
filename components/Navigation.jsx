@@ -1,8 +1,9 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Badge } from "react-bootstrap"
+import { useSelector } from "react-redux"
 
 export default function Navigation() {
+    const cQuantity = useSelector((state) => state.cart.cQuantity)
     return (
         <nav className="border fixed split-nav background-danger">
             <div className="nav-brand">
@@ -23,7 +24,7 @@ export default function Navigation() {
                         <li>
                             <Link href="/cart">
                                 <Image src={'/images/warenkorb.png'} alt='cart' width={30} height={30} />
-                                <span className="badge success" width={5} height={5} >2</span>
+                                <span className="badge success" width={5} height={5} >{cQuantity}</span>
                             </Link>
                         </li>
                     </ul>

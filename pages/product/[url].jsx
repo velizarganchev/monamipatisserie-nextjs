@@ -5,14 +5,19 @@ import Product from "../../models/Product";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProducts } from "../../redux/cartSlice";
+import { v4 as uuidv4 } from "uuid";
+import { useRouter } from "next/router";
 
 export default function Productpage({ product }) {
 
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const addToCart = () => {
-    dispatch(addProducts({...product, quantity}))
+    const _id = uuidv4();
+    dispatch(addProducts({ ...product, quantity, _id }));
+    router.push('/cart');
   }
 
   if (!product) {

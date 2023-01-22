@@ -22,13 +22,13 @@ export default function Productpage({ product }) {
 
   if (!product) {
     return (
-      <div>
+      <div className="text-center" style={{ height: "100vh" }}>
         <h2>Product not find!</h2>
       </div>
     )
   }
   return (
-    <div className='margin-top-large' style={{ height: "100vh" }}>
+    <div className='margin-top-large' >
       <div className='margin padding'>
         <Link href='/' className='text-dark' style={{ background: "none" }}>--Home--</Link>
       </div>

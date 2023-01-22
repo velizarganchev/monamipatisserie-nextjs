@@ -6,7 +6,7 @@ const OrderSchema = new mongoose.Schema({
         required: true,
         maxlength: 100
     },
-    adresse: {
+    address: {
         type: String,
         required: true,
         maxlength: 200
@@ -23,9 +23,30 @@ const OrderSchema = new mongoose.Schema({
     payment: {
         type: Number,
         required: true
+    },
+    products: {
+        type: [
+            {
+                name: {
+                    type: String,
+                    required: true
+                },
+                quantity: {
+                    type: Number,
+                    required: true
+                },
+                // deliveries: {
+                //     type: [
+                //         {
+                //             type: String
+                //         }
+                //     ]
+                // }
+            }]
     }
 },
     //{ timestamps: true }
 )
 
+delete mongoose.connection.model['Order']
 export default mongoose.models.Order || mongoose.model("Order", OrderSchema);

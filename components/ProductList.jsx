@@ -10,7 +10,7 @@ export default function ProductList({ products }) {
                 {
                     products?.map((product) => (
                         <div key={product.name} className='padding-small child-borders'>
-                            <div className="card " style={{ width: "15rem" }}>
+                            <div className="card" style={{ width: "15rem", flexDirection: "row"}}>
                                 <div className="card-body ">
                                     <h4 className="card-title">{product.name} {product.price.toFixed(2)}</h4>
                                     <h5 className="card-subtitle">{product.description}</h5>

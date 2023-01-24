@@ -5,7 +5,7 @@ import { useSelector } from "react-redux"
 export default function Navigation() {
     const cQuantity = useSelector((state) => state.cart.cQuantity)
     return (
-        <nav className="border fixed split-nav background-danger">
+        <nav className="border  split-nav background-danger">
             <div className="nav-brand">
                 <h3><Link href="/">MonAmiPatisseri</Link></h3>
             </div>
@@ -23,8 +23,12 @@ export default function Navigation() {
                         <li><Link href="/contact">Contact</Link></li>
                         <li>
                             <Link href="/cart">
-                                <Image src={'/images/warenkorb.png'} alt='cart' width={30} height={30} />
-                                <span className="badge success" width={5} height={5} >{cQuantity}</span>
+                                {cQuantity > 0 ? (
+                                    <>
+                                        <Image src={'/images/warenkorb.png'} style={{display: "inline"}} alt='cart' width={30} height={30} />
+                                        <span className="badge success" style={{fontSize: "30%"}} width={5} height={5} >{cQuantity}</span>
+                                    </>
+                                ) : (<Image src={'/images/warenkorb.png'} alt='cart' width={30} height={30} />)}
                             </Link>
                         </li>
                     </ul>

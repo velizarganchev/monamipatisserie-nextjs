@@ -43,7 +43,7 @@ export default function Orders({ orders }) {
                 {orders.map((order) => (
                     <tbody key={order._id}>
                         <tr>
-                            <td><Link href={`/orders/${order._id}`} style={{ background: "none", color: "red"}}>{order._id}</Link></td>
+                            <td><Link href={`/orders/${order._id}`} style={{ background: "none", color: "red" }}>{order._id}</Link></td>
                             <td>{order.client}</td>
                             <td>{order.address}</td>
                             <td>
@@ -60,7 +60,16 @@ export default function Orders({ orders }) {
     )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
+    const myCookie = ctx.req?.cookies || "";
+    if (myCookie.token !== process.env.TOKEN) {
+        return {
+            redirect: {
+                destination: "/backend/login",
+                permant: false
+            }
+        }
+    }
     const res = await axios.get(`http://localhost:3000/api/orders`);
     return {
         props: {

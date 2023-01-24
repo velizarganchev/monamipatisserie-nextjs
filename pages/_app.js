@@ -1,6 +1,3 @@
-//import '../styles/globals.css'
-//import '../styles/custom.scss'
-//import 'bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/papercss/dist/paper.css'
 import Layout from '../components/Layout'
 import store from '../redux/store'

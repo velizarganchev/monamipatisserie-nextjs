@@ -94,7 +94,7 @@ export default function Orders({ order }) {
 }
 
 export async function getServerSideProps({ params }) {
-    const res = await axios.get(`http://localhost:3000/api/orders/${params.nr}`);
+    const res = await axios.get(`https://monamipatisserie-nextjs.vercel.app/api/orders/${params.nr}`);
     return {
         props: {
             order: res.data

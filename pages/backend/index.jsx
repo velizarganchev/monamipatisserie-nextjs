@@ -10,7 +10,7 @@ export default function Orders({ orders }) {
     const statusUpdate = async (id, actuelStatus) => {
         try {
             if (actuelStatus <= 2) {
-                await axios.put(`http://localhost:3000/api/orders/` + id, { status: actuelStatus + 1 });
+                await axios.put(`https://monamipatisserie-nextjs.vercel.app/api/orders/` + id, { status: actuelStatus + 1 });
                 router.reload();
             }
         } catch (error) {
@@ -19,7 +19,7 @@ export default function Orders({ orders }) {
     }
     const removeOrder = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/api/orders/` + id);
+            await axios.delete(`https://monamipatisserie-nextjs.vercel.app/api/orders/` + id);
             router.reload();
         } catch (error) {
             console.log(error)
@@ -70,7 +70,7 @@ export async function getServerSideProps(ctx) {
             }
         }
     }
-    const res = await axios.get(`http://localhost:3000/api/orders`);
+    const res = await axios.get(`https://monamipatisserie-nextjs.vercel.app/api/orders`);
     return {
         props: {
             orders: res.data

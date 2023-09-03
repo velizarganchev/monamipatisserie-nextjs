@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 export default function About() {
     return (
       <div>
         <h3>About</h3>
         <p>
-        <img src="https://unsplash.it/200" alt="Smaller Unsplash" class="float-left" />
+        <Image width={200} height={200} src="https://unsplash.it/200" alt="Smaller Unsplash" className="float-left" />
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Curabitur non elit sed lorem vulputate consectetur sed vel orci. Nunc orci metus,
         hendrerit viverra diam a, viverra efficitur nisi. Suspendisse ante sapien,
@@ -20,7 +22,7 @@ export default function About() {
         Nam consectetur nisi erat, ac varius elit porttitor quis. Morbi ullamcorper, tortor in sagittis tempus,
         justo ipsum pretium urna, ut bibendum nisl orci et eros. Quisque ut ipsum neque. Integer sapien dolor,
         vestibulum id maximus ac, pharetra eu augue.
-        <img src="https://unsplash.it/100" alt="Smallerer Unsplash" class="float-right" />
+        <Image width={200} height={200} src="https://unsplash.it/100" alt="Smallerer Unsplash" className="float-right" />
         Aenean mauris tellus, facilisis sed quam non, tincidunt rutrum risus. Fusce quam urna,
         commodo vitae nunc condimentum, efficitur commodo libero. Sed dignissim odio enim,
         ac pharetra dui laoreet id. Suspendisse nec accumsan erat. Integer sit amet leo arcu.

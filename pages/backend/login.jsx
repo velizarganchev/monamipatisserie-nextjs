@@ -23,22 +23,22 @@ export default function Login() {
         <div style={{ height: "100vh" }}>
             <h1 className='text-center'>Login</h1>
             {error && <p className='text-danger'>Login Failed</p>}
-            <div class="row">
-                <div class="col sm-4">
-                    <div class="form-group">
-                        <label for="user">User</label>
+            <div className="row">
+                <div className="col sm-4">
+                    <div className="form-group">
+                        <label htmlFor="user">User</label>
                         <input
-                            class="input-block"
+                            className="input-block"
                             type="text" id="user"
                             onChange={(e) => setUser(e.target.value)}
                         />
                     </div>
                 </div>
-                <div class="col sm-4">
-                    <div class="form-group">
-                        <label for="password">Password</label>
+                <div className="col sm-4">
+                    <div className="form-group">
+                        <label htmlFor="password">Password</label>
                         <input
-                            class="input-block"
+                            className="input-block"
                             type="password"
                             id="password"
                             onChange={(e) => setPassword(e.target.value)}

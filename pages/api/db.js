@@ -1,17 +1,17 @@
-import mongodb from "../../utils/mongodb"
-import jsondb from "../../jsondb/products"
-import Product from "../../models/Product";
+// import mongodb from "../../utils/mongodb"
+// import jsondb from "../../jsondb/products"
+// import Product from "../../models/Product";
 
 
-export default async function handler(req, res) {
-  await mongodb.dbConnect();
+// export default async function handler(req, res) {
+//   await mongodb.dbConnect();
 
-  await Product.deleteMany();
-  await Product.insertMany(jsondb.products);
-  const products = await Product.find({})
+//   await Product.deleteMany();
+//   await Product.insertMany(jsondb.products);
+//   const products = await Product.find({})
 
-  await mongodb.dbDisconnect();
+//   await mongodb.dbDisconnect();
 
-  //res.send({ text: 'Data saved' })
-  res.send(products);
-}
+//   //res.send({ text: 'Data saved' })
+//   res.send(products);
+// }
